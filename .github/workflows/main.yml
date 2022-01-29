@@ -36,6 +36,6 @@ jobs:
         
     - name: Build && Push Image
       run: |
-        docker build . --file Dockerfile --tag ${{ secrets.DOCKER_HUB_NAME }}/gitops-demo:${{ github.sha }}
-        docker push ${{ secrets.DOCKER_HUB_NAME }}/gitops-demo:${{ github.sha }}
+        docker build . --file Dockerfile --tag docker.io/${{ secrets.DOCKER_HUB_NAME }}/gitops-demo:${{ github.sha }}
+        docker push docker.io/${{ secrets.DOCKER_HUB_NAME }}/gitops-demo:${{ github.sha }}
       
