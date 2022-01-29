@@ -34,6 +34,8 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_PWD }}
         logout: true
         
-    - name: build image
-      run: docker build . --file Dockerfile --tag my-image-name:${{ secrets.DOCKER_HUB_NAME }}/gitops-demo:$(date +%s)
+    - name: Build && Push Image
+      run: |
+        docker build . --file Dockerfile --tag my-image-name:${{ secrets.DOCKER_HUB_NAME }}/gitops-demo:$(date +%s)
+        run: docker push ${{ secrets.USERNAME }}/gitops-demo:$(date +%s)
       
