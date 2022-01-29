@@ -37,5 +37,5 @@ jobs:
         
     - name: Build && Push Image
       run: |
-        docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/liangzijin/gitops-demo:${{ github.sha }}
-        docker push registry.cn-hangzhou.aliyuncs.com/liangzijin/gitops-demo:${{ github.sha }}
+        docker build . --file Dockerfile --tag liangzijin/gitops-demo:${{ github.sha }}
+        docker push liangzijin/gitops-demo:${{ github.sha }}
