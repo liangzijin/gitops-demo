@@ -39,3 +39,16 @@ jobs:
       run: |
         docker build . --file Dockerfile --tag registry.cn-hangzhou.aliyuncs.com/liangzijin/gitops-demo:${{ github.sha }}
         docker push registry.cn-hangzhou.aliyuncs.com/liangzijin/gitops-demo:${{ github.sha }}
+
+    - name: Trigger CI
+      uses: InformaticsMatters/trigger-ci-action@1.0.1
+      with:
+        ci-owner: liangzijin
+        ci-repository: gitops-demo-kustomize
+        ci-ref: refs/heads/main
+        ci-user: liangzijin
+        ci-user-token: ${{ secrets.CI_TOKEN }}
+        ci-name: CI
+        ci-inputs: >-
+            image=registry.cn-hangzhou.aliyuncs.com/liangzijin/gitops-demo
+            sha-tag=${{ github.sha }}
