@@ -10,6 +10,6 @@ COPY ./target/app.jar app.jar
 
 EXPOSE 9000
 
-ENV JAVA_OPTS="-Xms200M -Xmx200M -XX:+PrintGC"
+ENV JAVA_OPTS="-Xms200M -Xmx300M -XX:+PrintGC"
 
 ENTRYPOINT java ${JAVA_OPTS} -jar app.jar
